@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pusat Informasi Digital RTLH | DISPERKIM Kutai Timur</title>
   <meta name="description" content="Pusat Informasi Digital Mekanisme Pengusulan Data RTLH Bidang Permukiman DISPERKIM Kabupaten Kutai Timur." />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     :root{
       --primary:#0f766e;
@@ -30,7 +32,11 @@
       margin: 0;
       font-family: "Segoe UI", Arial, Helvetica, sans-serif;
       color: var(--ink);
-      background: linear-gradient(180deg, #f8fafc 0%, #f4f7fb 100%);
+      background-color: #f8fafc;
+      background-image: 
+        radial-gradient(circle, rgba(15, 118, 110, 0.08) 1px, transparent 1px);
+      background-size: 50px 50px;
+      background-position: 0 0, 25px 25px;
       line-height: 1.65;
     }
 
@@ -250,6 +256,22 @@
     /* GENERIC SECTION */
     section {
       padding: 60px 0;
+      position: relative;
+    }
+    
+    section > * {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+    }
+    
+    section#alur,
+    section#syarat,
+    section#unduh,
+    section#faq {
+      border-top: 2px solid rgba(15, 118, 110, 0.15);
+      padding-top: 80px;
+      margin-top: 20px;
+      background: linear-gradient(180deg, rgba(15, 118, 110, 0.04) 0%, rgba(15, 118, 110, 0.01) 50%, transparent 100%);
     }
     .section-head {
       display: flex;
@@ -294,10 +316,27 @@
       box-shadow: var(--shadow);
       padding: 24px;
     }
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
     .card h4 {
       margin: 0 0 10px;
       font-size: 1.05rem;
       color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .card h4 i {
+      color: var(--primary);
+      font-size: 1.3rem;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .card p {
       margin: 0;
@@ -374,6 +413,13 @@
       margin: 0 0 14px;
       font-size: 1.08rem;
       color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .list-card h4 i {
+      color: var(--primary);
+      font-size: 1.2rem;
     }
     .checklist {
       list-style: none;
@@ -480,6 +526,18 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 16px;
+    }
+    .faq-q > span:first-child {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+    }
+    .faq-q i {
+      color: var(--primary);
+      font-size: 1.1rem;
+      min-width: 20px;
     }
     .faq-q:hover { background: #fbfdff; }
     .faq-a {
@@ -500,6 +558,25 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 24px;
+      margin-bottom: 28px;
+    }
+    
+    .contact-card > div:first-child {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .maps-wrapper {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .maps-wrapper iframe {
+      width: 100% !important;
+      height: 320px;
+      border: none;
+      display: block;
     }
     .contact-card h4 {
       margin: 0 0 10px;
@@ -547,6 +624,198 @@
       align-items: center;
     }
 
+    /* SLIDES */
+    .slides-container {
+      background: var(--card);
+      border: 1px solid rgba(226,232,240,0.9);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      position: relative;
+    }
+    .slides-wrapper {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #f0fdf4 0%, #f0f9ff 100%);
+      min-height: 520px;
+    }
+    .slide {
+      display: none;
+      padding: 36px;
+      animation: fadeIn 0.5s ease-in;
+    }
+    .slide.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .slide-content {
+      max-width: 100%;
+    }
+    .slide-content h3 {
+      margin: 0 0 16px;
+      font-size: 1.6rem;
+      color: var(--ink);
+    }
+    .slide-content p {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+    .intro-slide {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 520px;
+      gap: 32px;
+    }
+    .intro-slide h3 {
+      font-size: 2rem;
+    }
+    .slide-features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      width: 100%;
+      max-width: 600px;
+    }
+    .feature {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 20px;
+      background: white;
+      border-radius: 18px;
+      border: 1px solid rgba(226,232,240,0.9);
+    }
+    .feature i {
+      font-size: 2rem;
+      color: var(--primary);
+    }
+    .feature span {
+      font-weight: 600;
+      color: var(--ink);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+    .before-slide,
+    .after-slide {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .slide-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .image-box {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .placeholder-img {
+      width: 100%;
+      height: 280px;
+      border-radius: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-weight: 600;
+      color: white;
+      border: 2px dashed rgba(255,255,255,0.3);
+    }
+    .before-img {
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    }
+    .after-img {
+      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    }
+    .placeholder-img i {
+      font-size: 3rem;
+    }
+    .placeholder-img span {
+      font-size: 0.95rem;
+    }
+    .image-box > p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+    .slide-points {
+      display: grid;
+      gap: 12px;
+      background: white;
+      border-radius: 18px;
+      border: 1px solid rgba(226,232,240,0.9);
+      padding: 20px;
+    }
+    .point {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+    .point i {
+      color: var(--primary);
+      font-size: 1.1rem;
+      flex: 0 0 auto;
+    }
+    .slides-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .slide-btn {
+      background: var(--primary);
+      color: white;
+      border: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      transition: 0.2s ease;
+    }
+    .slide-btn:hover {
+      background: var(--primary-dark);
+      transform: scale(1.05);
+    }
+    .slide-dots {
+      display: flex;
+      gap: 12px;
+    }
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 0;
+      background: rgba(15, 118, 110, 0.2);
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+    .dot.active {
+      background: var(--primary);
+      transform: scale(1.2);
+    }
+    .dot:hover {
+      background: rgba(15, 118, 110, 0.4);
+    }
+
     /* RESPONSIVE */
     @media (max-width: 1080px) {
       .hero-grid,
@@ -560,6 +829,12 @@
       .download-grid,
       .stats-grid {
         grid-template-columns: 1fr 1fr;
+      }
+      .slide-features {
+        grid-template-columns: 1fr;
+      }
+      .slide-images {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -593,6 +868,32 @@
       .hero-identity {
         align-items: flex-start;
       }
+      .slides-wrapper {
+        min-height: auto;
+        padding: 20px;
+      }
+      .slide {
+        padding: 20px;
+      }
+      .slide-content h3 {
+        font-size: 1.3rem;
+      }
+      .intro-slide {
+        min-height: auto;
+        gap: 20px;
+      }
+      .intro-slide h3 {
+        font-size: 1.4rem;
+      }
+      .slide-features {
+        grid-template-columns: 1fr;
+      }
+      .placeholder-img {
+        height: 200px;
+      }
+      .slides-nav {
+        gap: 16px;
+      }
     }
   </style>
 </head>
@@ -615,8 +916,9 @@
         <a href="#syarat">Persyaratan</a>
         <a href="#dokumen">Dokumen</a>
         <a href="#unduh">Unduh</a>
+        <a href="#dokumentasi">Galeri</a>
         <a href="#faq">FAQ</a>
-        <a href="#kontak" class="nav-btn">Kontak Layanan</a>
+        <a href="#kontak" class="nav-btn">INFO RTLH</a>
       </div>
     </div>
   </nav>
@@ -668,21 +970,21 @@
     </div>
   </header>
 
-  <main class="container">
+  <main>
 
     <!-- TOP CARDS -->
     <section aria-label="sekilas">
       <div class="stats-grid">
-        <div class="card">
-          <h4>Tujuan</h4>
+        <div class="card" data-aos="fade-up" data-aos-delay="0">
+          <h4><i class="fas fa-bullseye"></i>Tujuan</h4>
           <p>Meningkatkan pemahaman pengusul terhadap mekanisme, persyaratan, dan tata cara usulan data RTLH.</p>
         </div>
-        <div class="card">
-          <h4>Fungsi</h4>
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+          <h4><i class="fas fa-cogs"></i>Fungsi</h4>
           <p>Menjadi pusat informasi digital yang memuat alur, dokumen, dan panduan resmi pengusulan data RTLH.</p>
         </div>
-        <div class="card">
-          <h4>Manfaat</h4>
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+          <h4><i class="fas fa-star"></i>Manfaat</h4>
           <p>Mengurangi kesalahan administrasi dan membantu peningkatan kualitas usulan data calon penerima bantuan.</p>
         </div>
       </div>
@@ -699,27 +1001,27 @@
       </div>
 
       <div class="steps">
-        <div class="step">
+        <div class="step" data-aos="zoom-in" data-aos-delay="0">
           <div class="num">01</div>
           <h4>Penerimaan Usulan</h4>
           <p>Usulan disampaikan oleh desa/kelurahan dan kecamatan sesuai format yang telah ditetapkan.</p>
         </div>
-        <div class="step">
+        <div class="step" data-aos="zoom-in" data-aos-delay="100">
           <div class="num">02</div>
           <h4>Pemeriksaan Kelengkapan</h4>
           <p>Dokumen administrasi dan kesesuaian data diperiksa oleh Bidang Permukiman.</p>
         </div>
-        <div class="step">
+        <div class="step" data-aos="zoom-in" data-aos-delay="200">
           <div class="num">03</div>
           <h4>Verifikasi Lapangan</h4>
           <p>Tim melakukan pengecekan kondisi rumah dan kesesuaian calon penerima di lapangan.</p>
         </div>
-        <div class="step">
+        <div class="step" data-aos="zoom-in" data-aos-delay="300">
           <div class="num">04</div>
           <h4>Validasi Data</h4>
           <p>Data hasil verifikasi dicocokkan dengan persyaratan dan prioritas program bantuan RTLH.</p>
         </div>
-        <div class="step">
+        <div class="step" data-aos="zoom-in" data-aos-delay="400">
           <div class="num">05</div>
           <h4>Penetapan Usulan</h4>
           <p>Calon penerima yang memenuhi syarat ditetapkan dan diusulkan sesuai ketentuan yang berlaku.</p>
@@ -738,8 +1040,8 @@
       </div>
 
       <div class="two-col">
-        <div class="list-card">
-          <h4>Persyaratan Calon Penerima RTLH</h4>
+        <div class="list-card" data-aos="fade-left">
+          <h4><i class="fas fa-user-check"></i>Persyaratan Calon Penerima RTLH</h4>
           <ul class="checklist">
             <li>Warga Kabupaten Kutai Timur.</li>
             <li>Memiliki rumah tidak layak huni.</li>
@@ -750,8 +1052,8 @@
           </ul>
         </div>
 
-        <div class="list-card" id="dokumen">
-          <h4>Dokumen Pendukung Usulan</h4>
+        <div class="list-card" id="dokumen" data-aos="fade-right">
+          <h4><i class="fas fa-file-alt"></i>Dokumen Pendukung Usulan</h4>
           <ul class="checklist">
             <li>Fotokopi KTP dan Kartu Keluarga.</li>
             <li>Foto kondisi rumah tampak depan, samping, dan dalam.</li>
@@ -774,25 +1076,25 @@
       </div>
 
       <div class="download-grid">
-        <div class="download-card">
+        <div class="download-card" data-aos="fade-up">
           <span class="pill">PDF • Pedoman</span>
           <h4>E-Book Pedoman Mekanisme Pengusulan Data RTLH</h4>
           <p>Panduan lengkap mengenai alur, persyaratan, dokumen, dan tata cara pengusulan data calon penerima bantuan RTLH.</p>
-          <a class="btn" href="#" target="_blank" rel="noopener">Unduh Dokumen</a>
+          <a class="btn" href="./Pedoman-Mekanisme-Pengusulan-RTLH.pdf" download>Unduh Dokumen</a>
         </div>
 
-        <div class="download-card">
+        <div class="download-card" data-aos="fade-up" data-aos-delay="100">
           <span class="pill">PDF / PNG • Visual</span>
           <h4>Infografis Mekanisme Pengusulan Data RTLH</h4>
           <p>Ringkasan visual mengenai tahapan dan persyaratan pengusulan data RTLH yang disusun secara singkat dan mudah dipahami.</p>
-          <a class="btn" href="#" target="_blank" rel="noopener">Unduh Dokumen</a>
+          <a class="btn" href="./Infografis-Mekanisme-Pengusulan-RTLH.pdf" download>Unduh Dokumen</a>
         </div>
 
-        <div class="download-card">
+        <div class="download-card" data-aos="fade-up" data-aos-delay="200">
           <span class="pill">PDF • SOP</span>
           <h4>SOP Mekanisme Pengusulan Data RTLH</h4>
           <p>Standar Operasional Prosedur sebagai acuan pelaksanaan pengusulan data RTLH secara tertib, terarah, dan akuntabel.</p>
-          <a class="btn" href="#" target="_blank" rel="noopener">Unduh Dokumen</a>
+          <a class="btn" href="./SOP-Mekanisme-Pengusulan-RTLH.pdf" download>Unduh Dokumen</a>
         </div>
       </div>
     </section>
@@ -808,9 +1110,9 @@
       </div>
 
       <div class="faq-wrap">
-        <div class="faq-item">
+        <div class="faq-item" data-aos="fade-up">
           <button class="faq-q" type="button">
-            <span>Siapa yang dapat diusulkan sebagai penerima bantuan RTLH?</span>
+            <span><i class="fas fa-users"></i>Siapa yang dapat diusulkan sebagai penerima bantuan RTLH?</span>
             <span>+</span>
           </button>
           <div class="faq-a">
@@ -818,9 +1120,9 @@
           </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
           <button class="faq-q" type="button">
-            <span>Apakah semua usulan otomatis diterima?</span>
+            <span><i class="fas fa-check-circle"></i>Apakah semua usulan otomatis diterima?</span>
             <span>+</span>
           </button>
           <div class="faq-a">
@@ -828,9 +1130,9 @@
           </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
           <button class="faq-q" type="button">
-            <span>Apa yang paling sering menyebabkan usulan tidak lolos?</span>
+            <span><i class="fas fa-exclamation-circle"></i>Apa yang paling sering menyebabkan usulan tidak lolos?</span>
             <span>+</span>
           </button>
           <div class="faq-a">
@@ -838,9 +1140,9 @@
           </div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
           <button class="faq-q" type="button">
-            <span>Siapa yang menyampaikan usulan data RTLH?</span>
+            <span><i class="fas fa-share-alt"></i>Siapa yang menyampaikan usulan data RTLH?</span>
             <span>+</span>
           </button>
           <div class="faq-a">
@@ -850,29 +1152,159 @@
       </div>
     </section>
 
+    <!-- DOKUMENTASI SLIDE -->
+    <section id="dokumentasi">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Galeri Dokumentasi</span>
+          <h3>Dokumentasi Rumah Sebelum dan Sesudah Bantuan</h3>
+          <p>Berikut contoh dokumentasi proses bantuan RTLH dari sebelum hingga sesudah pelaksanaan.</p>
+        </div>
+      </div>
+
+      <div class="slides-container">
+        <div class="slides-wrapper">
+          <!-- Slide 1: Intro -->
+          <div class="slide" data-aos="fade-up">
+            <div class="slide-content intro-slide">
+              <h3>Proses Dokumentasi RTLH</h3>
+              <p>Dokumentasi yang baik dan lengkap adalah kunci kesuksesan pengusulan data calon penerima bantuan RTLH.</p>
+              <div class="slide-features">
+                <div class="feature">
+                  <i class="fas fa-camera"></i>
+                  <span>Foto Jelas</span>
+                </div>
+                <div class="feature">
+                  <i class="fas fa-check"></i>
+                  <span>Data Akurat</span>
+                </div>
+                <div class="feature">
+                  <i class="fas fa-file"></i>
+                  <span>Administrasi Lengkap</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2: Sebelum Bantuan -->
+          <div class="slide" data-aos="fade-up" data-aos-delay="100">
+            <div class="slide-content before-slide">
+              <h3>Dokumentasi Rumah SEBELUM Mendapat Bantuan</h3>
+              <div class="slide-images">
+                <div class="image-box">
+                  <div class="placeholder-img before-img">
+                    <i class="fas fa-image"></i>
+                    <span>Kondisi Awal Rumah</span>
+                  </div>
+                  <p>Rumah dengan kondisi tidak layak huni (RTLH) sebelum mendapat bantuan perbaikan.</p>
+                </div>
+                <div class="image-box">
+                  <div class="placeholder-img before-img">
+                    <i class="fas fa-image"></i>
+                    <span>Detail Kerusakan</span>
+                  </div>
+                  <p>Dokumentasi detail kerusakan struktur rumah dan kondisi yang perlu diperbaiki.</p>
+                </div>
+              </div>
+              <div class="slide-points">
+                <div class="point">
+                  <i class="fas fa-check-circle"></i>
+                  <span>Foto tampak depan, samping, dalam rumah</span>
+                </div>
+                <div class="point">
+                  <i class="fas fa-check-circle"></i>
+                  <span>Dokumentasi detail kerusakan atap, dinding, lantai</span>
+                </div>
+                <div class="point">
+                  <i class="fas fa-check-circle"></i>
+                  <span>Informasi kondisi sanitasi dan fasilitas dasar</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3: Sesudah Bantuan -->
+          <div class="slide" data-aos="fade-up" data-aos-delay="200">
+            <div class="slide-content after-slide">
+              <h3>Dokumentasi Rumah SETELAH Mendapat Bantuan</h3>
+              <div class="slide-images">
+                <div class="image-box">
+                  <div class="placeholder-img after-img">
+                    <i class="fas fa-image"></i>
+                    <span>Hasil Perbaikan</span>
+                  </div>
+                  <p>Rumah telah diperbaiki dan memenuhi standar kelayakan untuk dihuni.</p>
+                </div>
+                <div class="image-box">
+                  <div class="placeholder-img after-img">
+                    <i class="fas fa-image"></i>
+                    <span>Detail Perbaikan</span>
+                  </div>
+                  <p>Dokumentasi detail hasil perbaikan struktur dan kondisi rumah yang sudah layak.</p>
+                </div>
+              </div>
+              <div class="slide-points">
+                <div class="point">
+                  <i class="fas fa-check-circle"></i>
+                  <span>Foto hasil perbaikan dari semua sisi rumah</span>
+                </div>
+                <div class="point">
+                  <i class="fas fa-check-circle"></i>
+                  <span>Dokumentasi perbaikan atap, dinding, lantai yang sudah selesai</span>
+                </div>
+                <div class="point">
+                  <i class="fas fa-check-circle"></i>
+                  <span>Verifikasi bahwa rumah sudah memenuhi standar layak huni</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="slides-nav">
+          <button class="slide-btn prev-btn" onclick="moveSlide(-1)">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="slide-dots">
+            <button class="dot active" onclick="currentSlide(1)"></button>
+            <button class="dot" onclick="currentSlide(2)"></button>
+            <button class="dot" onclick="currentSlide(3)"></button>
+          </div>
+          <button class="slide-btn next-btn" onclick="moveSlide(1)">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- KONTAK -->
     <section id="kontak">
-      <div class="contact-card">
+      <div class="contact-card" data-aos="zoom-in">
         <div>
           <h4>Kontak dan Informasi Layanan</h4>
           <p>
             Untuk informasi lebih lanjut terkait mekanisme pengusulan data RTLH, silakan menghubungi
             Bidang Permukiman DISPERKIM Kabupaten Kutai Timur melalui kanal layanan resmi berikut.
           </p>
+          
+          <div class="maps-wrapper">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d997.4113451172046!2d117.60360987338665!3d0.5334702539848463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x320bb59b383daadd%3A0xa878d0c04976dd85!2sDISPERKIM%20KUTAI%20TIMUR!5e0!3m2!1sen!2sid!4v1774511489660!5m2!1sen!2sid\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>
+            </div>
         </div>
 
         <div class="contact-grid">
           <div class="contact-item">
             <strong>Alamat</strong>
-            <span>Isi alamat kantor DISPERKIM Kabupaten Kutai Timur</span>
+            <span>Kompleks Perkantoran Pemerintah Kabupaten Kutai Timur<br>Jl. Prof. Sudiyatmo, Teluk Lingga, Sangatta Utara<br>Kabupaten Kutai Timur, Kalimantan Timur 75683</span>
           </div>
           <div class="contact-item">
             <strong>Telepon / WA Layanan</strong>
-            <span>Isi nomor layanan resmi</span>
+            <span><a href="https://wa.me/6281333921720?text=saya%20ingin%20bertanya%20tentang%20RTLH" target="_blank" style="color: var(--primary); text-decoration: underline; cursor: pointer;">081333921720</a></span>
           </div>
           <div class="contact-item">
             <strong>Email Resmi</strong>
-            <span>Isi email resmi DISPERKIM</span>
+            <span>bidperkim.kutim@gmail.com</span>
           </div>
           <div class="contact-item">
             <strong>Jam Layanan</strong>
@@ -894,7 +1326,16 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: false,
+      offset: 100
+    });
+
     // FAQ Accordion
     document.querySelectorAll('.faq-q').forEach((btn) => {
       btn.addEventListener('click', () => {
@@ -912,6 +1353,38 @@
         }
       });
     });
+
+    // Slide Navigation
+    let currentSlideIndex = 1;
+    
+    function moveSlide(n) {
+      showSlide(currentSlideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlide(currentSlideIndex = n);
+    }
+    
+    function showSlide(n) {
+      const slides = document.querySelectorAll('.slide');
+      const dots = document.querySelectorAll('.dot');
+      
+      if (n > slides.length) {
+        currentSlideIndex = 1;
+      }
+      if (n < 1) {
+        currentSlideIndex = slides.length;
+      }
+      
+      slides.forEach(slide => slide.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+      
+      slides[currentSlideIndex - 1].classList.add('active');
+      dots[currentSlideIndex - 1].classList.add('active');
+    }
+    
+    // Initialize slides
+    showSlide(currentSlideIndex);
   </script>
 </body>
 </html>
