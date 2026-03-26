@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pusat Informasi Digital RTLH | DISPERKIM Kutai Timur</title>
+  <meta name="description" content="Pusat Informasi Digital Mekanisme Pengusulan Data RTLH Bidang Permukiman DISPERKIM Kabupaten Kutai Timur." />
+  <style>
+    :root{
+      --primary:#0f766e;
+      --primary-dark:#0b5f59;
+      --secondary:#0ea5e9;
+      --ink:#0f172a;
+      --muted:#64748b;
+      --line:#e2e8f0;
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --accent:#ecfeff;
+      --success:#d1fae5;
+      --warning:#fef3c7;
+      --shadow:0 10px 30px rgba(15, 23, 42, 0.08);
+      --radius:20px;
+      --radius-sm:14px;
+      --max:1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #f8fafc 0%, #f4f7fb 100%);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(226,232,240,0.8);
+    }
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 20px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+    .logo-box {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      background: white;
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow);
+      padding: 6px;
+      flex: 0 0 auto;
+    }
+    .logo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .brand-text {
+      min-width: 0;
+    }
+    .brand-text h1 {
+      font-size: 1rem;
+      margin: 0;
+      line-height: 1.2;
+    }
+    .brand-text p {
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: #334155;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    .nav-btn {
+      background: var(--primary);
+      color: white !important;
+      padding: 10px 16px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+    .nav-btn:hover { background: var(--primary-dark); }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.18), transparent 30%),
+        linear-gradient(135deg, #0f766e 0%, #0b5f59 40%, #0369a1 100%);
+      color: white;
+      padding: 78px 0 54px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .hero-identity {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    .hero-identity img {
+      width: 78px;
+      height: 78px;
+      object-fit: contain;
+      background: white;
+      border-radius: 20px;
+      padding: 8px;
+      box-shadow: var(--shadow);
+    }
+    .eyebrow {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .hero-instansi {
+      margin: 0;
+      font-size: 0.96rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+    }
+    .hero h2 {
+      margin: 0 0 16px;
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+    }
+    .hero p {
+      margin: 0;
+      font-size: 1.08rem;
+      color: rgba(255,255,255,0.92);
+      max-width: 760px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 0;
+      border-radius: 14px;
+      padding: 13px 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s ease;
+      box-shadow: var(--shadow);
+    }
+    .btn-primary {
+      background: white;
+      color: var(--primary-dark);
+    }
+    .btn-primary:hover { transform: translateY(-1px); }
+    .btn-outline {
+      background: rgba(255,255,255,0.08);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.14); }
+
+    .hero-panel {
+      background: rgba(255,255,255,0.96);
+      color: var(--ink);
+      border-radius: 28px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+    .hero-panel h3 {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+    }
+    .hero-panel p {
+      color: var(--muted);
+      font-size: 0.96rem;
+      margin-bottom: 18px;
+    }
+    .mini-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .mini-card {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .mini-card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--primary-dark);
+      font-size: 0.95rem;
+    }
+    .mini-card span {
+      color: #334155;
+      font-size: 0.95rem;
+    }
+
+    /* GENERIC SECTION */
+    section {
+      padding: 34px 0;
+    }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+    .section-head h3 {
+      margin: 0;
+      font-size: 1.7rem;
+      line-height: 1.2;
+    }
+    .section-head p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      max-width: 760px;
+    }
+    .section-kicker {
+      color: var(--primary);
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      margin-bottom: 6px;
+      display: inline-block;
+    }
+
+    /* TOP CARDS */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: -34px;
+      position: relative;
+      z-index: 10;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(226,232,240,0.9);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+    .card h4 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+      color: var(--primary-dark);
+    }
+    .card p {
+      margin: 0;
+      color: #475569;
+    }
+
+    /* STEPS */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+    .step {
+      background: var(--card);
+      border: 1px solid rgba(226,232,240,0.9);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      min-height: 230px;
+      position: relative;
+      overflow: hidden;
+    }
+    .step::after {
+      content: "";
+      position: absolute;
+      right: -30px;
+      top: -30px;
+      width: 110px;
+      height: 110px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(15,118,110,0.12), rgba(14,165,233,0.08));
+    }
+    .step .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: var(--success);
+      color: #065f46;
+      font-weight: 800;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
+    .step h4 {
+      margin: 0 0 10px;
+      font-size: 1.06rem;
+      position: relative;
+      z-index: 1;
+    }
+    .step p {
+      margin: 0;
+      color: #475569;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* CHECKLISTS */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .list-card {
+      background: var(--card);
+      border: 1px solid rgba(226,232,240,0.9);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+    .list-card h4 {
+      margin: 0 0 14px;
+      font-size: 1.08rem;
+      color: var(--ink);
+    }
+    .checklist {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      padding: 0;
+      margin: 0;
+    }
+    .checklist li {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 16px 14px 48px;
+      position: relative;
+      color: #334155;
+    }
+    .checklist li::before {
+      content: "✓";
+      position: absolute;
+      left: 16px;
+      top: 13px;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: var(--success);
+      color: #065f46;
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    /* DOWNLOAD */
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .download-card {
+      background: var(--card);
+      border: 1px solid rgba(226,232,240,0.9);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      min-height: 260px;
+    }
+    .pill {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      background: var(--accent);
+      color: #0c4a6e;
+      margin-bottom: 14px;
+      border: 1px solid #bae6fd;
+    }
+    .download-card h4 {
+      margin: 0 0 10px;
+      font-size: 1.08rem;
+      line-height: 1.35;
+      color: #0f172a;
+    }
+    .download-card p {
+      color: #475569;
+      margin: 0 0 18px;
+      flex: 1;
+    }
+    .download-card .btn {
+      align-self: flex-start;
+      background: var(--primary);
+      color: white;
+      box-shadow: none;
+    }
+    .download-card .btn:hover { background: var(--primary-dark); }
+
+    /* FAQ */
+    .faq-wrap {
+      display: grid;
+      gap: 12px;
+    }
+    .faq-item {
+      background: var(--card);
+      border: 1px solid rgba(226,232,240,0.9);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      background: white;
+      border: 0;
+      padding: 18px 20px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .faq-q:hover { background: #fbfdff; }
+    .faq-a {
+      display: none;
+      padding: 0 20px 18px;
+      color: #475569;
+    }
+    .faq-item.active .faq-a { display: block; }
+    .faq-item.active .faq-q { background: #f8fafc; }
+
+    /* CONTACT */
+    .contact-card {
+      background: linear-gradient(135deg, #0f172a 0%, #111827 100%);
+      color: white;
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .contact-card h4 {
+      margin: 0 0 10px;
+      font-size: 1.5rem;
+    }
+    .contact-card p {
+      margin: 0;
+      color: rgba(255,255,255,0.82);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .contact-item {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .contact-item strong {
+      display: block;
+      margin-bottom: 6px;
+      color: white;
+    }
+    .contact-item span {
+      color: rgba(255,255,255,0.82);
+      font-size: 0.96rem;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 36px;
+      border-top: 1px solid rgba(226,232,240,0.9);
+      padding: 26px 0 34px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      background: transparent;
+    }
+    .footer-wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .contact-card,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+      .steps {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .download-grid,
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-wrap {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .nav-links {
+        justify-content: space-between;
+      }
+      .hero {
+        padding: 64px 0 44px;
+      }
+      .stats-grid,
+      .steps,
+      .download-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .mini-grid {
+        grid-template-columns: 1fr;
+      }
+      .section-head {
+        flex-direction: column;
+        align-items: start;
+      }
+      .brand-text p {
+        white-space: normal;
+      }
+      .hero-identity {
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container nav-wrap">
+      <div class="brand">
+        <div class="logo-box">
+          <img src="logo-kutim.png" alt="Logo Kabupaten Kutai Timur">
+        </div>
+        <div class="brand-text">
+          <h1>Pusat Informasi Digital RTLH</h1>
+          <p>Bidang Permukiman | DISPERKIM Kabupaten Kutai Timur</p>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#alur">Alur</a>
+        <a href="#syarat">Persyaratan</a>
+        <a href="#dokumen">Dokumen</a>
+        <a href="#unduh">Unduh</a>
+        <a href="#faq">FAQ</a>
+        <a href="#kontak" class="nav-btn">Kontak Layanan</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-identity">
+          <img src="logo-kutim.png" alt="Logo Kabupaten Kutai Timur">
+          <div>
+            <span class="eyebrow">Pusat Informasi Resmi</span>
+            <p class="hero-instansi">Pemerintah Kabupaten Kutai Timur</p>
+          </div>
+        </div>
+
+        <h2>Mekanisme Pengusulan Data Calon Penerima Bantuan RTLH</h2>
+        <p>
+          Portal informasi digital yang dirancang untuk membantu kecamatan, desa/kelurahan,
+          dan masyarakat dalam memahami alur, persyaratan, dokumen, serta tata cara pengusulan
+          data Rumah Tidak Layak Huni (RTLH) secara lebih jelas, tertib, dan terarah.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#alur" class="btn btn-primary">Lihat Alur Pengusulan</a>
+          <a href="#unduh" class="btn btn-outline">Unduh Dokumen</a>
+        </div>
+      </div>
+
+      <div class="hero-panel">
+        <h3>Sekilas Layanan</h3>
+        <p>Informasi utama yang perlu dipahami sebelum proses pengusulan data RTLH dilakukan.</p>
+
+        <div class="mini-grid">
+          <div class="mini-card">
+            <strong>Target Pengguna</strong>
+            <span>Kecamatan, Desa/Kelurahan, Masyarakat</span>
+          </div>
+          <div class="mini-card">
+            <strong>Fokus Layanan</strong>
+            <span>Usulan Data Calon Penerima RTLH</span>
+          </div>
+          <div class="mini-card" style="grid-column: 1 / -1;">
+            <strong>Tujuan Utama</strong>
+            <span>Meningkatkan kesesuaian data usulan dengan persyaratan program bantuan RTLH.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- TOP CARDS -->
+    <section aria-label="sekilas">
+      <div class="stats-grid">
+        <div class="card">
+          <h4>Tujuan</h4>
+          <p>Meningkatkan pemahaman pengusul terhadap mekanisme, persyaratan, dan tata cara usulan data RTLH.</p>
+        </div>
+        <div class="card">
+          <h4>Fungsi</h4>
+          <p>Menjadi pusat informasi digital yang memuat alur, dokumen, dan panduan resmi pengusulan data RTLH.</p>
+        </div>
+        <div class="card">
+          <h4>Manfaat</h4>
+          <p>Mengurangi kesalahan administrasi dan membantu peningkatan kualitas usulan data calon penerima bantuan.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALUR -->
+    <section id="alur">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Alur Layanan</span>
+          <h3>Alur Mekanisme Pengusulan Data RTLH</h3>
+          <p>Berikut tahapan umum yang dilalui dalam proses pengusulan data calon penerima bantuan RTLH.</p>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="num">01</div>
+          <h4>Penerimaan Usulan</h4>
+          <p>Usulan disampaikan oleh desa/kelurahan dan kecamatan sesuai format yang telah ditetapkan.</p>
+        </div>
+        <div class="step">
+          <div class="num">02</div>
+          <h4>Pemeriksaan Kelengkapan</h4>
+          <p>Dokumen administrasi dan kesesuaian data diperiksa oleh Bidang Permukiman.</p>
+        </div>
+        <div class="step">
+          <div class="num">03</div>
+          <h4>Verifikasi Lapangan</h4>
+          <p>Tim melakukan pengecekan kondisi rumah dan kesesuaian calon penerima di lapangan.</p>
+        </div>
+        <div class="step">
+          <div class="num">04</div>
+          <h4>Validasi Data</h4>
+          <p>Data hasil verifikasi dicocokkan dengan persyaratan dan prioritas program bantuan RTLH.</p>
+        </div>
+        <div class="step">
+          <div class="num">05</div>
+          <h4>Penetapan Usulan</h4>
+          <p>Calon penerima yang memenuhi syarat ditetapkan dan diusulkan sesuai ketentuan yang berlaku.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SYARAT + DOKUMEN -->
+    <section id="syarat">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Persyaratan & Dokumen</span>
+          <h3>Persyaratan Dasar dan Dokumen Pendukung</h3>
+          <p>Silakan sesuaikan kembali dengan pedoman resmi, SOP, dan ketentuan internal DISPERKIM Kabupaten Kutai Timur.</p>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="list-card">
+          <h4>Persyaratan Calon Penerima RTLH</h4>
+          <ul class="checklist">
+            <li>Warga Kabupaten Kutai Timur.</li>
+            <li>Memiliki rumah tidak layak huni.</li>
+            <li>Memiliki atau menguasai tanah yang sah.</li>
+            <li>Belum pernah menerima bantuan RTLH sejenis.</li>
+            <li>Masuk kategori masyarakat berpenghasilan rendah.</li>
+            <li>Bersedia diverifikasi dan disurvei lapangan.</li>
+          </ul>
+        </div>
+
+        <div class="list-card" id="dokumen">
+          <h4>Dokumen Pendukung Usulan</h4>
+          <ul class="checklist">
+            <li>Fotokopi KTP dan Kartu Keluarga.</li>
+            <li>Foto kondisi rumah tampak depan, samping, dan dalam.</li>
+            <li>Surat keterangan domisili / pengantar desa.</li>
+            <li>Dokumen kepemilikan atau penguasaan tanah.</li>
+            <li>Formulir usulan calon penerima bantuan RTLH.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- UNDUH -->
+    <section id="unduh">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Pusat Unduhan</span>
+          <h3>Dokumen Informasi dan Acuan Pelaksanaan</h3>
+          <p>Dokumen berikut dapat dimanfaatkan sebagai pedoman, media edukasi, dan acuan teknis pengusulan data RTLH.</p>
+        </div>
+      </div>
+
+      <div class="download-grid">
+        <div class="download-card">
+          <span class="pill">PDF • Pedoman</span>
+          <h4>E-Book Pedoman Mekanisme Pengusulan Data RTLH</h4>
+          <p>Panduan lengkap mengenai alur, persyaratan, dokumen, dan tata cara pengusulan data calon penerima bantuan RTLH.</p>
+          <a class="btn" href="#" target="_blank" rel="noopener">Unduh Dokumen</a>
+        </div>
+
+        <div class="download-card">
+          <span class="pill">PDF / PNG • Visual</span>
+          <h4>Infografis Mekanisme Pengusulan Data RTLH</h4>
+          <p>Ringkasan visual mengenai tahapan dan persyaratan pengusulan data RTLH yang disusun secara singkat dan mudah dipahami.</p>
+          <a class="btn" href="#" target="_blank" rel="noopener">Unduh Dokumen</a>
+        </div>
+
+        <div class="download-card">
+          <span class="pill">PDF • SOP</span>
+          <h4>SOP Mekanisme Pengusulan Data RTLH</h4>
+          <p>Standar Operasional Prosedur sebagai acuan pelaksanaan pengusulan data RTLH secara tertib, terarah, dan akuntabel.</p>
+          <a class="btn" href="#" target="_blank" rel="noopener">Unduh Dokumen</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Tanya Jawab</span>
+          <h3>Pertanyaan yang Sering Diajukan</h3>
+          <p>Berikut beberapa pertanyaan umum terkait mekanisme pengusulan data calon penerima bantuan RTLH.</p>
+        </div>
+      </div>
+
+      <div class="faq-wrap">
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            <span>Siapa yang dapat diusulkan sebagai penerima bantuan RTLH?</span>
+            <span>+</span>
+          </button>
+          <div class="faq-a">
+            Masyarakat yang memiliki rumah tidak layak huni dan memenuhi persyaratan program bantuan RTLH sesuai ketentuan yang berlaku.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            <span>Apakah semua usulan otomatis diterima?</span>
+            <span>+</span>
+          </button>
+          <div class="faq-a">
+            Tidak. Seluruh usulan akan melalui tahapan pemeriksaan administrasi, verifikasi lapangan, dan validasi data terlebih dahulu.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            <span>Apa yang paling sering menyebabkan usulan tidak lolos?</span>
+            <span>+</span>
+          </button>
+          <div class="faq-a">
+            Beberapa penyebab yang umum antara lain dokumen tidak lengkap, data tidak sesuai kondisi lapangan, atau status tanah yang belum jelas.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">
+            <span>Siapa yang menyampaikan usulan data RTLH?</span>
+            <span>+</span>
+          </button>
+          <div class="faq-a">
+            Pada umumnya, usulan berasal dari desa/kelurahan dan kecamatan, kemudian diteruskan kepada DISPERKIM untuk diproses sesuai mekanisme.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section id="kontak">
+      <div class="contact-card">
+        <div>
+          <h4>Kontak dan Informasi Layanan</h4>
+          <p>
+            Untuk informasi lebih lanjut terkait mekanisme pengusulan data RTLH, silakan menghubungi
+            Bidang Permukiman DISPERKIM Kabupaten Kutai Timur melalui kanal layanan resmi berikut.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-item">
+            <strong>Alamat</strong>
+            <span>Isi alamat kantor DISPERKIM Kabupaten Kutai Timur</span>
+          </div>
+          <div class="contact-item">
+            <strong>Telepon / WA Layanan</strong>
+            <span>Isi nomor layanan resmi</span>
+          </div>
+          <div class="contact-item">
+            <strong>Email Resmi</strong>
+            <span>Isi email resmi DISPERKIM</span>
+          </div>
+          <div class="contact-item">
+            <strong>Jam Layanan</strong>
+            <span>Senin – Jumat, 08.00 – 16.00 WITA</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <img src="logo-kutim.png" alt="Logo Kutai Timur" style="width:42px; height:42px; object-fit:contain;">
+        <div>© 2026 Bidang Permukiman — DISPERKIM Kabupaten Kutai Timur</div>
+      </div>
+      <div>Pusat Informasi Digital Mekanisme Pengusulan Data RTLH</div>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ Accordion
+    document.querySelectorAll('.faq-q').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const isActive = item.classList.contains('active');
+
+        document.querySelectorAll('.faq-item').forEach((el) => {
+          el.classList.remove('active');
+          el.querySelector('.faq-q span:last-child').textContent = '+';
+        });
+
+        if (!isActive) {
+          item.classList.add('active');
+          btn.querySelector('span:last-child').textContent = '−';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
