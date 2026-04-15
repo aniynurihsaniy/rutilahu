@@ -501,6 +501,32 @@
     }
     .download-card .btn:hover { background: var(--primary-dark); }
 
+    .preview-link {
+      position: relative;
+      width: fit-content;
+      margin-bottom: 16px;
+      display: block;
+      cursor: pointer;
+    }
+    .preview-link .preview-overlay {
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .preview-link:hover .preview-overlay {
+      opacity: 1;
+    }
+    .preview-overlay i {
+      font-size: 2rem;
+      color: white;
+    }
+
     /* FAQ */
     .faq-wrap {
       display: grid;
@@ -887,21 +913,38 @@
           <span class="pill">PDF • Pedoman</span>
           <h4>E-Book Pedoman Mekanisme Pengusulan Data RTLH</h4>
           <p>Panduan lengkap mengenai alur, persyaratan, dokumen, dan tata cara pengusulan data calon penerima bantuan RTLH.</p>
-          <a class="btn" href="./Pedoman-Mekanisme-Pengusulan-RTLH.pdf" download>Unduh Dokumen</a>
+          <a href="./Pedoman-Mekanisme-Pengusulan-RTLH.pdf" download class="preview-link">
+            <img src="./preview1.png" alt="Preview E-Book Pedoman RTLH" style="border-radius:14px; border:1px solid var(--line); width:160px; height:210px; object-fit:cover;">
+            <span style="position:absolute; bottom:8px; left:8px; background:rgba(220,38,38,0.9); color:white; font-size:0.7rem; font-weight:800; padding:3px 8px; border-radius:6px; z-index:1;">PDF</span>
+            <div class="preview-overlay"><i class="fas fa-download"></i></div>
+          </a>
+          <a class="btn" href="./Pedoman-Mekanisme-Pengusulan-RTLH.pdf" download><i class="fas fa-download"></i> Unduh Dokumen</a>
         </div>
 
         <div class="download-card" data-aos="fade-up" data-aos-delay="100">
           <span class="pill">PDF / PNG • Visual</span>
           <h4>Infografis Mekanisme Pengusulan Data RTLH</h4>
           <p>Ringkasan visual mengenai tahapan dan persyaratan pengusulan data RTLH yang disusun secara singkat dan mudah dipahami.</p>
-          <a class="btn" href="./Infografis-Mekanisme-Pengusulan-RTLH.pdf" download>Unduh Dokumen</a>
+          <a href="./Infografis-Mekanisme-Pengusulan-RTLH.pdf" download class="preview-link">
+            <div style="width:160px; height:210px; border-radius:14px; border:1px solid var(--line); background:linear-gradient(135deg,#f1f5f9,#e2e8f0); display:flex; align-items:center; justify-content:center;">
+              <i class="fas fa-file-image" style="font-size:3rem; color:#94a3b8;"></i>
+            </div>
+            <span style="position:absolute; bottom:8px; left:8px; background:rgba(220,38,38,0.9); color:white; font-size:0.7rem; font-weight:800; padding:3px 8px; border-radius:6px; z-index:1;">PDF</span>
+            <div class="preview-overlay"><i class="fas fa-download"></i></div>
+          </a>
+          <a class="btn" href="./Infografis-Mekanisme-Pengusulan-RTLH.pdf" download><i class="fas fa-download"></i> Unduh Dokumen</a>
         </div>
 
         <div class="download-card" data-aos="fade-up" data-aos-delay="200">
           <span class="pill">PDF • SOP</span>
           <h4>SOP Mekanisme Pengusulan Data RTLH</h4>
           <p>Standar Operasional Prosedur sebagai acuan pelaksanaan pengusulan data RTLH secara tertib, terarah, dan akuntabel.</p>
-          <a class="btn" href="./SOP-Mekanisme-Pengusulan-RTLH.pdf" download>Unduh Dokumen</a>
+          <a href="./SOP-Mekanisme-Pengusulan-RTLH.pdf" download class="preview-link">
+            <img src="./preview3.png" alt="Preview SOP Mekanisme RTLH" style="border-radius:14px; border:1px solid var(--line); width:160px; height:210px; object-fit:cover;">
+            <span style="position:absolute; bottom:8px; left:8px; background:rgba(220,38,38,0.9); color:white; font-size:0.7rem; font-weight:800; padding:3px 8px; border-radius:6px; z-index:1;">PDF</span>
+            <div class="preview-overlay"><i class="fas fa-download"></i></div>
+          </a>
+          <a class="btn" href="./SOP-Mekanisme-Pengusulan-RTLH.pdf" download><i class="fas fa-download"></i> Unduh Dokumen</a>
         </div>
       </div>
     </section>
